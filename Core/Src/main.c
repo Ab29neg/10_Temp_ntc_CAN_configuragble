@@ -4,7 +4,7 @@
 // ---------- CAN Base ID Configuration ----------
 uint8_t high = 0x01;      // Default High byte of CAN base ID
 uint8_t low  = 0x23;      // Default Low byte of CAN base ID
-uint32_t tim = 9000000;
+uint32_t tim = 1000000;
 volatile uint32_t base_id; // Final 11-bit base CAN ID
 volatile float B_value = 3614.0f;
 volatile float R0_value = 10000.0f;
@@ -208,6 +208,6 @@ int main(void) {
         can_send((base_id<<1 ) | 0, data0, 8); // Temps 0–4
         can_send((base_id<<1 ) | 1, data1, 8); // Temps 5–9
 
-        delay(tim); // Wait ~1 second
+        delay(tim); // Wait ~1 second by default
     }
 }
